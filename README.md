@@ -1,4 +1,4 @@
-# rezu
+# Rezu
 
 To install dependencies:
 
