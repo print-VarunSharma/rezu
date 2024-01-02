@@ -5,32 +5,28 @@ import {
   FirestoreTimestampType,
 } from "../types/types";
 
-export interface CallMetadataInterface {
-  name: string;
-  email: string;
+export interface ReservationMetadata {
   [key: string]: string;
 }
 
-export enum providerEnum {
-  blandAi = "blandAi",
-  // TBA e.g: Twilio
-}
-
-export interface CallInfoInterface {
+export interface ReservationInterface {
   id: FirestoreDocumentIdType;
   organizationId: FirestoreDocumentIdType;
   callId: string;
-  metadata: CallMetadataInterface;
-  provider: providerEnum;
+  name: string;
+  email: string;
+  phoneNumber: number;
+  date: FirestoreTimestampType;
+  guests: number;
+  specialRequests: string;
+  metadata: ReservationMetadata;
   creationDate: FirestoreTimestampType;
   modifiedDate: FirestoreTimestampType;
   version: number;
 }
 
-export const DEFAULT_CALL_VALUES: any = {
+export const DEFAULT_RESERVATION_VALUES: any = {
   creationDate: firestore.FieldValue.serverTimestamp(),
   modifiedDate: firestore.FieldValue.serverTimestamp(),
   version: 1,
 };
-
-console.log(firestore.FieldValue.serverTimestamp());
